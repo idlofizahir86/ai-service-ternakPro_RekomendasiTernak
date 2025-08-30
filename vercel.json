@@ -2,17 +2,18 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/*.py",
+      "src": "api/recommend.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
+      "src": "/api/(.*)",
+      "dest": "/api/recommend.py"
+    },
+    {
       "src": "/(.*)",
       "dest": "/api/recommend.py"
     }
-  ],
-  "env": {
-    "PYTHONPATH": "/vercel/path0/api:/vercel/path0"
-  }
+  ]
 }
